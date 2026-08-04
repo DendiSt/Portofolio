@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-web1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b0f19"/>
+      <stop offset="50%" stop-color="#1e1e38"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="blue-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066ff"/>
+      <stop offset="100%" stop-color="#00f3ff"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-web1)"/>
+
+  <!-- Command Center Web Dashboard Mockup -->
+  <g transform="translate(100, 50)">
+    <rect width="600" height="320" rx="12" fill="rgba(15, 23, 42, 0.95)" stroke="#00f3ff" stroke-width="2"/>
+    <rect width="600" height="35" rx="12" fill="#1e293b"/>
+    <circle cx="20" cy="18" r="5" fill="#ef4444"/>
+    <circle cx="35" cy="18" r="5" fill="#eab308"/>
+    <circle cx="50" cy="18" r="5" fill="#22c55e"/>
+    <text x="70" y="22" fill="#cbd5e1" font-family="sans-serif" font-size="12" font-weight="bold">Fire Response Command Center Web (GIS &amp; Analytics)</text>
+
+    <!-- Sidebar -->
+    <rect x="15" y="50" width="120" height="250" rx="6" fill="#0f172a"/>
+    <rect x="25" y="70" width="100" height="20" rx="4" fill="#0066ff"/>
+    <text x="35" y="84" fill="#ffffff" font-family="sans-serif" font-size="10">● Incident Map</text>
+    <text x="35" y="114" fill="#94a3b8" font-family="sans-serif" font-size="10">● Verification</text>
+    <text x="35" y="144" fill="#94a3b8" font-family="sans-serif" font-size="10">● Education Req</text>
+
+    <!-- Main Map Area -->
+    <rect x="150" y="50" width="430" height="250" rx="8" fill="#1e293b" stroke="rgba(0, 243, 255, 0.3)"/>
+    <text x="170" y="75" fill="#00f3ff" font-family="sans-serif" font-size="12" font-weight="bold">GIS FIRE HAZARD MAP</text>
+    <!-- Map pins -->
+    <circle cx="280" cy="140" r="15" fill="rgba(239, 68, 68, 0.3)" stroke="#ef4444" stroke-width="2"/>
+    <circle cx="280" cy="140" r="4" fill="#ef4444"/>
+    <circle cx="420" cy="190" r="20" fill="rgba(249, 115, 22, 0.3)" stroke="#f97316" stroke-width="2"/>
+    <circle cx="420" cy="190" r="5" fill="#f97316"/>
+  </g>
+
+  <rect x="240" y="395" width="320" height="30" rx="15" fill="url(#blue-gradient)"/>
+  <text x="400" y="415" fill="#0f172a" font-family="sans-serif" font-size="12" font-weight="900" text-anchor="middle">WEB COMMAND CENTER DASHBOARD (REACT)</text>
+</svg>

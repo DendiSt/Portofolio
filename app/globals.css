@@ -1,0 +1,155 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-slate-50 text-slate-800 transition-colors duration-500 font-sans;
+}
+
+.dark body {
+  @apply bg-cyber-black text-slate-200;
+}
+
+/* Cyber Grid Background */
+.cyber-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 102, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 102, 255, 0.05) 1px, transparent 1px);
+}
+
+.dark .cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+  @apply bg-white/70 backdrop-blur-md border border-cyber-blue/30 shadow-[0_0_15px_rgba(0,102,255,0.1)] transition-all;
+}
+
+.dark .glass-panel {
+  @apply bg-cyber-dark/80 backdrop-blur-md border border-cyber-cyan/30 shadow-[0_0_15px_rgba(0,243,255,0.1)];
+}
+
+/* Hide scrollbar for smooth carousel scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =============================================
+   SCROLL-TRIGGERED ENTRANCE ANIMATIONS
+   ============================================= */
+
+/* --- Keyframes --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* --- Base hidden states (before visible) --- */
+.animate-on-scroll {
+  opacity: 0;
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 700ms;
+  will-change: opacity, transform;
+}
+
+/* Fade Up (default) */
+.animate-fade-up    { transform: translateY(40px); }
+/* Slide Left */
+.animate-slide-left { transform: translateX(-50px); }
+/* Slide Right */
+.animate-slide-right{ transform: translateX(50px); }
+/* Zoom In */
+.animate-zoom-in    { transform: scale(0.88); }
+/* Fade only */
+.animate-fade       { transform: none; }
+
+/* --- Visible state: element itself --- */
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Visible state: children inside a parent that got is-visible --- */
+/* (Handles cases where ref is on a grid wrapper, but animate classes are on child cards) */
+.is-visible .animate-on-scroll {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Stagger delay helpers --- */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }

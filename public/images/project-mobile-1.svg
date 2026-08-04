@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg-mob1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#31100e"/>
+    </linearGradient>
+    <linearGradient id="fire-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg-mob1)"/>
+
+  <!-- Phone Mockup 1: Public Reporting -->
+  <g transform="translate(180, 40)">
+    <rect width="200" height="360" rx="20" fill="#020617" stroke="#ef4444" stroke-width="3"/>
+    <rect x="70" y="10" width="60" height="12" rx="6" fill="#1e293b"/>
+    <text x="20" y="50" fill="#ef4444" font-family="sans-serif" font-size="12" font-weight="bold">PELAPORAN DARURAT</text>
+    <rect x="15" y="65" width="170" height="90" rx="8" fill="rgba(239, 68, 68, 0.15)" stroke="#ef4444" stroke-width="1"/>
+    <text x="25" y="88" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">LOKASI GPS ACCURATE</text>
+    <text x="25" y="108" fill="#fca5a5" font-family="sans-serif" font-size="10">Subang, Jawa Barat</text>
+    <rect x="25" y="122" width="150" height="22" rx="4" fill="#ef4444"/>
+    <text x="100" y="137" fill="#ffffff" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Kirim Laporan + Foto</text>
+  </g>
+
+  <!-- Phone Mockup 2: Officer Dispatch -->
+  <g transform="translate(420, 40)">
+    <rect width="200" height="360" rx="20" fill="#020617" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="70" y="10" width="60" height="12" rx="6" fill="#1e293b"/>
+    <text x="20" y="50" fill="#38bdf8" font-family="sans-serif" font-size="12" font-weight="bold">PETUGAS DISPOSISI</text>
+    <rect x="15" y="65" width="170" height="90" rx="8" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="1"/>
+    <text x="25" y="88" fill="#ffffff" font-family="sans-serif" font-size="11" font-weight="bold">NAVIGASI RUTE LIVE</text>
+    <text x="25" y="108" fill="#7dd3fc" font-family="sans-serif" font-size="10">Timer Respon: 04:12 Min</text>
+  </g>
+
+  <rect x="240" y="395" width="320" height="30" rx="15" fill="url(#fire-gradient)"/>
+  <text x="400" y="415" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">FIRE RESPONSE MOBILE APP (FLUTTER)</text>
+</svg>
