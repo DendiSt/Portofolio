@@ -4,7 +4,7 @@ import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function About() {
   const headingRef = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.2 });
-  const cardRef    = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const cardRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
   return (
     <section id="about" className="py-20 scroll-mt-20 z-10 relative">
@@ -20,9 +20,7 @@ export default function About() {
       >
         <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple"></div>
         <p className="text-lg leading-relaxed z-10 relative text-slate-700 dark:text-slate-300">
-          Saya adalah seorang mahasiswa yang memiliki semangat tinggi dalam mengeksplorasi hal-hal baru di dunia IT.
-          Dengan minat mendalam pada Frontend Development, saya berfokus pada penciptaan antarmuka yang estetis dan interaktif.
-          Memiliki pengalaman dalam membangun berbagai proyek Website, Aplikasi Mobile, hingga implementasi AIoT. Bagi saya, teknologi bukan sekadar baris kode, melainkan medium untuk menciptakan solusi inovatif yang menjawab tantangan di masa depan.
+          Saya adalah seorang mahasiswa D4 Teknologi Rekayasa Perangkat Lunak yang memiliki semangat tinggi dalam mengeksplorasi dunia IT. Saat ini, saya memfokuskan diri pada Backend Development untuk membangun arsitektur sistem yang solid, efisien, dan andal. Memiliki pengalaman dalam mengembangkan berbagai proyek Website, Aplikasi Mobile, hingga sistem AIoT. Bagi saya, teknologi bukan sekadar baris kode, melainkan medium untuk terus belajar dan menciptakan solusi di balik layar yang inovatif guna menjawab tantangan masa depan.
         </p>
       </div>
     </section>
