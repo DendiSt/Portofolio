@@ -9,9 +9,9 @@ export default function Hero() {
   const [name, setName] = useState('');
   const [isTypingDone, setIsTypingDone] = useState(false);
 
-  const badgeRef   = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const textRef    = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
-  const imageRef   = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const badgeRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const textRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
+  const imageRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
   const fullGreeting = "Halo, Saya ";
   const fullName = "Dendi Sutiya";
@@ -52,7 +52,7 @@ export default function Hero() {
         </div>
 
         <h1 className="text-5xl md:text-7xl font-black tracking-tight min-h-[120px] md:min-h-[160px]">
-          {greeting} <br/>
+          {greeting} <br />
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple drop-shadow-md">
             {name}
           </span>
@@ -63,9 +63,12 @@ export default function Hero() {
         </h1>
 
         <h2 className="text-2xl font-bold text-slate-600 dark:text-slate-400">Junior Web &amp; IoT Developer</h2>
-        <div className="pt-4 flex gap-4 justify-center md:justify-start">
-          <a href="#projects" className="px-8 py-3 rounded-md font-bold bg-cyber-blue dark:bg-cyber-cyan text-white dark:text-cyber-black shadow-neon-cyan hover:scale-105 transition-transform">
+        <div className="pt-4 flex flex-col gap-4 justify-center items-center md:items-start">
+          <a href="#projects" className="px-8 py-3 w-full sm:w-[200px] text-center rounded-md font-bold bg-cyber-blue dark:bg-cyber-cyan text-white dark:text-cyber-black shadow-neon-cyan hover:scale-105 transition-transform">
             Lihat Projek
+          </a>
+          <a href="/images/CVDendiSutiya.pdf" download="CV_Dendi_Sutiya.pdf" className="px-8 py-3 w-full sm:w-[200px] text-center rounded-md font-bold border border-cyber-blue dark:border-cyber-cyan text-cyber-blue dark:text-cyber-cyan hover:bg-cyber-blue/10 dark:hover:bg-cyber-cyan/10 transition-colors">
+            Download CV
           </a>
         </div>
       </div>

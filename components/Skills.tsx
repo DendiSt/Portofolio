@@ -4,31 +4,31 @@ import { Code, GraduationCap, Briefcase } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const skills = [
-  { name: "VsCode",       iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
-  { name: "Figma",        iconUrl: "https://cdn.simpleicons.org/figma" },
-  { name: "Arduino Ide",  iconUrl: "https://cdn.simpleicons.org/arduino" },
-  { name: "Laravel",      iconUrl: "https://cdn.simpleicons.org/laravel" },
-  { name: "PHP",          iconUrl: "https://cdn.simpleicons.org/php" },
-  { name: "Javascript",   iconUrl: "https://cdn.simpleicons.org/javascript" },
-  { name: "Python",       iconUrl: "https://cdn.simpleicons.org/python" },
-  { name: "C++",          iconUrl: "https://cdn.simpleicons.org/cplusplus" },
-  { name: "MySQL",        iconUrl: "https://cdn.simpleicons.org/mysql" },
-  { name: "Flutter",      iconUrl: "https://cdn.simpleicons.org/flutter" },
-  { name: "Bootstrap",    iconUrl: "https://cdn.simpleicons.org/bootstrap" },
-  { name: "Tailwind CSS", iconUrl: "https://cdn.simpleicons.org/tailwindcss" },
-  { name: "HTML",         iconUrl: "https://cdn.simpleicons.org/html5" },
-  { name: "CSS",          iconUrl: "https://cdn.simpleicons.org/css" },
-  { name: "React",        iconUrl: "https://cdn.simpleicons.org/react" },
-  { name: "Typescript",   iconUrl: "https://cdn.simpleicons.org/typescript" },
+  { name: "VsCode", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg" },
+  { name: "Figma", iconUrl: "https://cdn.simpleicons.org/figma" },
+  { name: "Arduino Ide", iconUrl: "https://cdn.simpleicons.org/arduino" },
+  { name: "Laravel", iconUrl: "https://cdn.simpleicons.org/laravel" },
+  // { name: "PHP", iconUrl: "https://cdn.simpleicons.org/php" },
+  { name: "Javascript", iconUrl: "https://cdn.simpleicons.org/javascript" },
+  { name: "Python", iconUrl: "https://cdn.simpleicons.org/python" },
+  // { name: "C++", iconUrl: "https://cdn.simpleicons.org/cplusplus" },
+  { name: "MySQL", iconUrl: "https://cdn.simpleicons.org/mysql" },
+  { name: "Flutter", iconUrl: "https://cdn.simpleicons.org/flutter" },
+  { name: "Bootstrap", iconUrl: "https://cdn.simpleicons.org/bootstrap" },
+  //{ name: "Tailwind CSS", iconUrl: "https://cdn.simpleicons.org/tailwindcss" },
+  { name: "HTML", iconUrl: "https://cdn.simpleicons.org/html5" },
+  { name: "CSS", iconUrl: "https://cdn.simpleicons.org/css" },
+  //{ name: "React", iconUrl: "https://cdn.simpleicons.org/react" },
+  // { name: "Typescript", iconUrl: "https://cdn.simpleicons.org/typescript" },
 ];
 
 const cardDelays = ['', 'delay-200', 'delay-400'];
 
 export default function Skills() {
-  const headingRef   = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
-  const cardsRef     = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const techHeadRef  = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
-  const iconsRef     = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
+  const headingRef = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
+  const cardsRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const techHeadRef = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
+  const iconsRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   return (
     <section id="skills" className="py-20 scroll-mt-20 z-10 relative">
@@ -39,7 +39,7 @@ export default function Skills() {
         className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
       >
         {[
-          { icon: <Code className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Bahasa & Framework', desc: 'PHP, Laravel, Javascript, Bootstrap, Flutter' },
+          { icon: <Code className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Bahasa & Framework', desc: 'Laravel, Javascript, Bootstrap, Flutter, Arduino Ide' },
           { icon: <GraduationCap className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Pendidikan', desc: 'Politeknik Negeri Subang di program studi D4 Teknologi Rekayasa Perangkat Lunak' },
           { icon: <Briefcase className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Projek', desc: 'Telah membuat beberapa projek mobile dan website' },
         ].map((card, idx) => (
