@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, ExternalLink } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const certificates = [
@@ -11,6 +11,13 @@ const certificates = [
     title: "Junior Web Programming",
     image: "/images/sertifikat.jpeg",
     issuer: "Sertifikasi Kompetensi",
+  },
+  {
+    id: 2,
+    title: "Pengembangan Sistem Membership EVOS Esports",
+    image: "/images/image.png",
+    issuer: "Liputan Berita KOTASUBANG.com",
+    link: "https://www.kotasubang.com/36695/mahasiswa-politeknik-negeri-subang-bekerjasama-dengan-pt-teknologi-mudah-terhubung-kembangkan-sistem-membership-untuk-evos-esports"
   }
 ];
 
@@ -18,7 +25,7 @@ export default function Certificates() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const headingRef = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
-  const gridRef    = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const gridRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   useEffect(() => {
     if (selectedImage) {
@@ -37,7 +44,7 @@ export default function Certificates() {
         ref={headingRef}
         className="text-3xl font-black mb-8 border-l-4 border-cyber-purple pl-4 text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple animate-on-scroll animate-slide-left"
       >
-        Certificates
+        Certificates/Recognitions
       </h3>
 
       {/* Grid Gallery */}
@@ -50,20 +57,37 @@ export default function Certificates() {
             key={cert.id}
             style={{ transitionDelay: `${idx * 150}ms` }}
             className="animate-on-scroll animate-zoom-in group relative glass-panel rounded-xl overflow-hidden cursor-pointer hover:shadow-neon-purple transition-all duration-300"
-            onClick={() => setSelectedImage(cert.image)}
+            onClick={() => {
+              if ('link' in cert && cert.link) {
+                window.open(cert.link, '_blank', 'noopener,noreferrer');
+              } else {
+                setSelectedImage(cert.image);
+              }
+            }}
           >
             {/* Thumbnail */}
-            <div className="aspect-[4/3] overflow-hidden">
+            <div className="aspect-[4/3] overflow-hidden bg-cyber-dark flex items-center justify-center relative">
               <img
                 src={cert.image}
                 alt={cert.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 filter brightness-75 group-hover:brightness-100"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 filter brightness-75 group-hover:brightness-100 z-10"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
               />
+              {/* Teks cadangan jika gambar tidak ada/gagal dimuat */}
+              <div className="z-0 px-4 text-center font-bold text-cyber-cyan/40">
+                {cert.title}
+              </div>
             </div>
 
             {/* Overlay */}
-            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-cyber-black/90 via-cyber-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <ZoomIn className="text-cyber-cyan w-8 h-8 mb-2 mx-auto animate-bounce" />
+            <div className="absolute inset-0 flex flex-col justify-end p-4 bg-gradient-to-t from-cyber-black/90 via-cyber-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+              {'link' in cert && cert.link ? (
+                <ExternalLink className="text-cyber-cyan w-8 h-8 mb-2 mx-auto animate-bounce" />
+              ) : (
+                <ZoomIn className="text-cyber-cyan w-8 h-8 mb-2 mx-auto animate-bounce" />
+              )}
               <h4 className="text-lg font-bold text-white text-center">{cert.title}</h4>
               <p className="text-xs text-cyber-cyan text-center">{cert.issuer}</p>
             </div>

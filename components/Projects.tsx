@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { Database, Code2, Cpu, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, Smartphone, Monitor } from 'lucide-react';
+import { Database, Code2, Cpu, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, Smartphone, Monitor, BookOpen } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 interface Project {
@@ -16,6 +16,7 @@ interface Project {
   icon: React.ReactNode;
   demoUrl?: string;
   githubUrl?: string;
+  journalUrl?: string;
 }
 
 const projects: Project[] = [
@@ -23,7 +24,7 @@ const projects: Project[] = [
     id: 0,
     title: "V.I.S.I.O.N",
     category: "IoT & Computer Vision",
-    shortDesc: "Visual Intelligence System for IoT & Optimized Nutrition. Sistem cerdas tambak ikan.",
+    shortDesc: "Visual Intelligence System for IoT & Optimized Nutrition. Sistem pemberi makan ikan otomatis berbasis ai guna mengurangi pemborosan pakan.",
     fullDesc: "V.I.S.I.O.N adalah platform pintar berbasis IoT dan Computer Vision yang dirancang untuk mengoptimalisasi manajemen tambak ikan. Menggunakan ESP32-CAM dengan deteksi aktivitas ikan berbasis AI, sistem ini mengatur siklus pakan otomatis dan memantau parameter kualitas air secara real-time.",
     features: [
       "Deteksi aktivitas & keaktifan ikan via ESP32-CAM",
@@ -49,7 +50,8 @@ const projects: Project[] = [
     ],
     tech: ["Flutter", "Node.js", "Express.js", "MySQL"],
     images: ["/images/damkarMobile.png"],
-    icon: <Smartphone className="w-5 h-5" />
+    icon: <Smartphone className="w-5 h-5" />,
+    journalUrl: "https://journal.publinesia.com/index.php/sistematik/article/view/193"
   },
   {
     id: 2,
@@ -65,7 +67,8 @@ const projects: Project[] = [
     ],
     tech: ["React.js", "Node.js", "Express.js", "MySQL"],
     images: ["/images/pemadam.png"],
-    icon: <Monitor className="w-5 h-5" />
+    icon: <Monitor className="w-5 h-5" />,
+    journalUrl: "https://journal.publinesia.com/index.php/sistematik/article/view/193"
   },
 ];
 
@@ -126,7 +129,7 @@ function ProjectCardItem({
   return (
     <div
       ref={cardRef}
-      className={`glass-panel rounded-2xl group transition-all duration-500 relative overflow-hidden animate-on-scroll animate-fade-up flex flex-col h-full w-[86vw] sm:w-[350px] md:w-auto shrink-0 snap-center ${cardDelays[idx]} ${isExpanded
+      className={`glass-panel rounded-2xl group transition-all duration-500 relative overflow-hidden animate-on-scroll animate-fade-up flex flex-col h-auto w-[86vw] sm:w-[350px] md:w-auto shrink-0 snap-center ${cardDelays[idx]} ${isExpanded
         ? 'ring-2 ring-cyber-blue dark:ring-cyber-cyan shadow-[0_0_30px_rgba(0,102,255,0.25)] dark:shadow-[0_0_30px_rgba(0,243,255,0.3)] bg-white dark:bg-cyber-dark/95'
         : 'hover:shadow-neon-cyan hover:-translate-y-1'
         }`}
@@ -258,18 +261,33 @@ function ProjectCardItem({
             </ul>
           </div>
 
-          {/* Tombol See More / See Less */}
-          <button
-            onClick={() => onToggleExpand(proj.id)}
-            className="mt-4 w-full py-2.5 px-4 rounded-xl border border-cyber-blue/40 dark:border-cyber-cyan/40 bg-cyber-blue/5 dark:bg-cyber-cyan/10 hover:bg-cyber-blue dark:hover:bg-cyber-cyan hover:text-white dark:hover:text-slate-950 text-cyber-blue dark:text-cyber-cyan text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer shrink-0"
-          >
-            <span>{isExpanded ? 'See Less' : 'See More'}</span>
-            {isExpanded ? (
-              <ChevronUp className="w-4 h-4 transition-transform duration-300 group-hover/btn:-translate-y-0.5" />
-            ) : (
-              <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5" />
+          {/* Tombol Actions */}
+          <div className="flex flex-col gap-2 mt-4">
+            {proj.journalUrl && (
+              <a
+                href={proj.journalUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-2.5 px-4 rounded-xl border border-emerald-500/40 bg-emerald-500/5 hover:bg-emerald-500 hover:text-white text-emerald-600 dark:text-emerald-400 text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/link shrink-0"
+              >
+                <BookOpen className="w-4 h-4 transition-transform duration-300 group-hover/link:scale-110" />
+                <span>Baca Jurnal</span>
+              </a>
             )}
-          </button>
+
+            {/* Tombol See More / See Less */}
+            <button
+              onClick={() => onToggleExpand(proj.id)}
+              className="w-full py-2.5 px-4 rounded-xl border border-cyber-blue/40 dark:border-cyber-cyan/40 bg-cyber-blue/5 dark:bg-cyber-cyan/10 hover:bg-cyber-blue dark:hover:bg-cyber-cyan hover:text-white dark:hover:text-slate-950 text-cyber-blue dark:text-cyber-cyan text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer shrink-0"
+            >
+              <span>{isExpanded ? 'See Less' : 'See More'}</span>
+              {isExpanded ? (
+                <ChevronUp className="w-4 h-4 transition-transform duration-300 group-hover/btn:-translate-y-0.5" />
+              ) : (
+                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5" />
+              )}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -330,7 +348,7 @@ export default function Projects() {
       {/* Container Cards: Horizontal Scroll di Mobile (< md), Grid di Desktop (>= md) */}
       <div
         ref={gridRef}
-        className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 md:gap-6 items-stretch pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar md:grid-cols-2 lg:grid-cols-3"
+        className="flex md:grid overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none gap-4 md:gap-6 items-start pb-6 md:pb-0 -mx-4 px-4 md:mx-0 md:px-0 no-scrollbar md:grid-cols-2 lg:grid-cols-3"
       >
         {projects.map((proj, idx) => (
           <ProjectCardItem
