@@ -8,6 +8,7 @@ import Skills from '@/components/Skills';
 import Projects from '@/components/Projects';
 import Certificates from '@/components/Certificates';
 import Contact from '@/components/Contact';
+import CursorGlow from '@/components/CursorGlow';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -23,6 +24,7 @@ export default function Home() {
   return (
     <div className="min-h-screen cyber-grid relative overflow-x-hidden">
       {/* Efek Cahaya Background (Glow) */}
+      <CursorGlow />
       <div className="fixed top-[-10%] left-[-10%] w-96 h-96 bg-cyber-purple/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
       <div className="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-cyber-cyan/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
 

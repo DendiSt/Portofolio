@@ -8,9 +8,9 @@ export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const headingRef  = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
-  const leftRef     = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
-  const rightRef    = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const headingRef = useScrollAnimation<HTMLHeadingElement>({ threshold: 0.1 });
+  const leftRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
+  const rightRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,9 +39,9 @@ export default function Contact() {
   };
 
   const contactLinks = [
-    { icon: <Mail />,           label: "Email",     value: "dendist0402@gmail.com",  href: "mailto:dendist0402@gmail.com",         color: "hover:shadow-neon-cyan hover:border-cyber-cyan" },
-    { icon: <MessageCircle />,  label: "WhatsApp",  value: "Chat Langsung",           href: "https://wa.me/6285295619819",           color: "hover:shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:border-[#25D366]" },
-    { icon: <AtSign />,         label: "Instagram", value: "@denst04_",               href: "https://instagram.com/denst04_",        color: "hover:shadow-neon-purple hover:border-cyber-purple" },
+    { icon: <Mail />, label: "Email", value: "dendist0402@gmail.com", href: "mailto:dendist0402@gmail.com", color: "hover:shadow-neon-cyan hover:border-cyber-cyan" },
+    { icon: <MessageCircle />, label: "WhatsApp", value: "Chat Langsung", href: "https://wa.me/6285295619819?text=Halo%20Dendi%2C%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi%20lebih%20lanjut%20tentang%20peluang%20kerja%20sama.", color: "hover:shadow-[0_0_15px_rgba(37,211,102,0.5)] hover:border-[#25D366]" },
+    { icon: <AtSign />, label: "Instagram", value: "@denst04_", href: "https://instagram.com/denst04_", color: "hover:shadow-neon-purple hover:border-cyber-purple" },
   ];
 
   return (
@@ -125,7 +125,7 @@ export default function Contact() {
             </button>
 
             {status === 'success' && <p className="text-green-500 font-bold text-center mt-2 animate-pulse">Pesan berhasil dikirim! 🚀</p>}
-            {status === 'error'   && <p className="text-red-500 font-bold text-center mt-2">Gagal mengirim pesan. Coba lagi.</p>}
+            {status === 'error' && <p className="text-red-500 font-bold text-center mt-2">Gagal mengirim pesan. Coba lagi.</p>}
           </form>
         </div>
       </div>
