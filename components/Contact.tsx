@@ -48,7 +48,7 @@ export default function Contact() {
     <section id="contact" className="py-20 scroll-mt-20 z-10 relative">
       <h3
         ref={headingRef}
-        className="text-3xl font-black mb-8 border-l-4 border-cyber-cyan pl-4 text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-cyan dark:from-cyber-cyan dark:to-cyber-blue animate-on-scroll animate-slide-left"
+        className="text-3xl font-black mb-8 border-l-4 border-cyber-cyan pl-4 text-slate-900 dark:text-slate-100 animate-on-scroll animate-slide-left"
       >
         Contact &amp; Collaboration
       </h3>
@@ -88,7 +88,7 @@ export default function Contact() {
           ref={rightRef}
           className="glass-panel p-8 rounded-2xl relative overflow-hidden animate-on-scroll animate-slide-right delay-300"
         >
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-cyber-blue dark:bg-cyber-cyan"></div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>

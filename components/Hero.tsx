@@ -53,7 +53,7 @@ export default function Hero() {
 
         <h1 className="text-5xl md:text-7xl font-black tracking-tight min-h-[120px] md:min-h-[160px]">
           {greeting} <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple drop-shadow-md">
+          <span className="text-cyber-blue dark:text-cyber-cyan font-bold drop-shadow-sm">
             {name}
           </span>
 

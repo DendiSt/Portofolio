@@ -42,7 +42,7 @@ export default function Certificates() {
     <section id="certificates" className="py-20 scroll-mt-20 z-10 relative">
       <h3
         ref={headingRef}
-        className="text-3xl font-black mb-8 border-l-4 border-cyber-purple pl-4 text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple animate-on-scroll animate-slide-left"
+        className="text-3xl font-black mb-8 border-l-4 border-cyber-purple pl-4 text-slate-900 dark:text-slate-100 animate-on-scroll animate-slide-left"
       >
         Certificates/Recognitions
       </h3>

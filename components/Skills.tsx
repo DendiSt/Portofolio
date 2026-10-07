@@ -56,7 +56,7 @@ export default function Skills() {
 
       <h3
         ref={techHeadRef}
-        className="text-3xl font-black mb-8 border-l-4 border-cyber-cyan pl-4 text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-cyan dark:from-cyber-cyan dark:to-cyber-blue animate-on-scroll animate-slide-left"
+        className="text-3xl font-black mb-8 border-l-4 border-cyber-cyan pl-4 text-slate-900 dark:text-slate-100 animate-on-scroll animate-slide-left"
       >
         Teknologi yang saya gunakan
       </h3>

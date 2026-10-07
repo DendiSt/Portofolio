@@ -10,16 +10,16 @@ export default {
     extend: {
       colors: {
         cyber: {
-          black: '#050510',
-          dark: '#0a0a20',
-          cyan: '#00f3ff',
-          purple: '#bc13fe',
-          blue: '#0066ff',
+          black: '#0f172a', /* slate-900 */
+          dark: '#1e293b', /* slate-800 */
+          cyan: '#3b82f6', /* blue-500 */
+          purple: '#2563eb', /* blue-600 */
+          blue: '#1d4ed8', /* blue-700 */
         }
       },
       boxShadow: {
-        'neon-cyan': '0 0 15px rgba(0, 243, 255, 0.5)',
-        'neon-purple': '0 0 15px rgba(188, 19, 254, 0.5)',
+        'neon-cyan': '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+        'neon-purple': '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
       },
       keyframes: {
         fadeIn: {

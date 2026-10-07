@@ -24,11 +24,9 @@ export default function Home() {
 
   return (
     <div className="min-h-screen cyber-grid relative overflow-x-hidden">
-      {/* Efek Cahaya Background (Glow) */}
+      {/* Background and Cursor */}
       <CursorGlow />
       <ParticleBackground isDark={isDark} speed={0.2} />
-      <div className="fixed top-[-10%] left-[-10%] w-96 h-96 bg-cyber-purple/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
-      <div className="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-cyber-cyan/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
 
       <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
       

@@ -268,7 +268,7 @@ function ProjectCardItem({
                 href={proj.journalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xl border border-emerald-500/40 bg-emerald-500/5 hover:bg-emerald-500 hover:text-white text-emerald-600 dark:text-emerald-400 text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/link shrink-0"
+                className="w-full py-2.5 px-4 rounded-xl border border-cyber-blue/40 dark:border-cyber-cyan/40 bg-cyber-blue/5 dark:bg-cyber-cyan/10 hover:bg-cyber-blue dark:hover:bg-cyber-cyan hover:text-white dark:hover:text-slate-950 text-cyber-blue dark:text-cyber-cyan text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/link shrink-0"
               >
                 <BookOpen className="w-4 h-4 transition-transform duration-300 group-hover/link:scale-110" />
                 <span>Baca Jurnal</span>

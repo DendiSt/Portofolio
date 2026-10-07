@@ -44,7 +44,7 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <div className="text-lg md:text-xl font-extrabold tracking-widest text-transparent bg-clip-text bg-gradient-to-r from-cyber-blue to-cyber-purple dark:from-cyber-cyan dark:to-cyber-purple">
+          <div className="text-lg md:text-xl font-extrabold tracking-widest text-slate-900 dark:text-slate-100">
             DENDI SUTIYA
           </div>
         </div>
