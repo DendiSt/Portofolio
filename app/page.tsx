@@ -9,6 +9,7 @@ import Projects from '@/components/Projects';
 import Certificates from '@/components/Certificates';
 import Contact from '@/components/Contact';
 import CursorGlow from '@/components/CursorGlow';
+import ParticleBackground from '@/components/ParticleBackground';
 
 export default function Home() {
   const [isDark, setIsDark] = useState(true);
@@ -25,6 +26,7 @@ export default function Home() {
     <div className="min-h-screen cyber-grid relative overflow-x-hidden">
       {/* Efek Cahaya Background (Glow) */}
       <CursorGlow />
+      <ParticleBackground isDark={isDark} speed={0.2} />
       <div className="fixed top-[-10%] left-[-10%] w-96 h-96 bg-cyber-purple/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
       <div className="fixed bottom-[-10%] right-[-10%] w-96 h-96 bg-cyber-cyan/20 blur-[120px] rounded-full z-0 pointer-events-none"></div>
 
