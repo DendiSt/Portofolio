@@ -78,13 +78,19 @@ export default function ParticleBackground({
         this.x += this.vx;
         this.y += this.vy;
 
+        // Pantulan di tepi layar untuk sumbu X
         if (this.x >= canvas!.width || this.x <= 0) this.vx = -this.vx;
-        if (this.y >= canvas!.height || this.y <= 0) this.vy = -this.vy;
+        
+        // Wrap-around untuk sumbu Y agar mendukung efek scroll yang mulus
+        if (this.y >= canvas!.height) this.y -= canvas!.height;
+        if (this.y < 0) this.y += canvas!.height;
 
+        // Logika tolakan kursor (Repulsion)
         let dx = mouse.x - this.x;
         let dy = mouse.y - this.y;
         let distance = Math.sqrt(dx * dx + dy * dy);
         
+        // Jarak interaksi
         let forceDirectionX = dx / distance;
         let forceDirectionY = dy / distance;
         let maxDistance = mouse.radius;
@@ -101,6 +107,7 @@ export default function ParticleBackground({
 
     const init = () => {
       particles = [];
+      // Sesuaikan jumlah partikel dengan ukuran layar
       const count = Math.floor((canvas.width * canvas.height) / 15000) * (particleCount / 50);
       for (let i = 0; i < count; i++) {
         let x = Math.random() * canvas.width;
@@ -109,13 +116,24 @@ export default function ParticleBackground({
       }
     };
 
+    let lastScrollY = typeof window !== 'undefined' ? window.scrollY : 0;
+
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
+      const currentScrollY = window.scrollY;
+      // Gunakan faktor 0.5 untuk efek parallax (scroll lebih lambat dari layar)
+      const scrollDelta = (currentScrollY - lastScrollY) * 0.5;
+      lastScrollY = currentScrollY;
+      
       for (let i = 0; i < particles.length; i++) {
+        // Geser partikel berdasarkan scroll
+        particles[i].y -= scrollDelta;
+
         particles[i].update();
         particles[i].draw();
         
+        // Gambar garis antar partikel yang berdekatan
         for (let j = i; j < particles.length; j++) {
           let dx = particles[i].x - particles[j].x;
           let dy = particles[i].y - particles[j].y;
