@@ -4,6 +4,18 @@ import { useState, useEffect, useRef } from 'react';
 import { Database, Code2, Cpu, ChevronDown, ChevronUp, ChevronLeft, ChevronRight, CheckCircle2, Sparkles, Smartphone, Monitor, BookOpen } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
+function GithubIcon({ className = "w-3.5 h-3.5" }: { className?: string }) {
+  return (
+    <svg className={className} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fillRule="evenodd"
+        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+        clipRule="evenodd"
+      />
+    </svg>
+  );
+}
+
 interface Project {
   id: number;
   title: string;
@@ -34,7 +46,8 @@ const projects: Project[] = [
     ],
     tech: ["ESP32-CAM", "Python", "Supabase", "OpenCV"],
     images: ["/images/vision.png", "/images/visionalat.png"],
-    icon: <Cpu className="w-5 h-5" />
+    icon: <Cpu className="w-5 h-5" />,
+    githubUrl: "https://github.com/DendiSt/Project_Vision_AIoT.git"
   },
   {
     id: 1,
@@ -51,6 +64,7 @@ const projects: Project[] = [
     tech: ["Flutter", "Node.js", "Express.js", "MySQL"],
     images: ["/images/damkarMobile.png"],
     icon: <Smartphone className="w-5 h-5" />,
+    githubUrl: "https://github.com/DendiSt/Mobile-Damkar.git",
     journalUrl: "https://journal.publinesia.com/index.php/sistematik/article/view/193"
   },
   {
@@ -68,6 +82,7 @@ const projects: Project[] = [
     tech: ["React.js", "Node.js", "Express.js", "MySQL"],
     images: ["/images/pemadam.png"],
     icon: <Monitor className="w-5 h-5" />,
+    githubUrl: "https://github.com/DendiSt/Web-Damkar.git",
     journalUrl: "https://journal.publinesia.com/index.php/sistematik/article/view/193"
   },
 ];
@@ -259,7 +274,20 @@ function ProjectCardItem({
           </div>
 
           {/* Tombol Actions */}
-          <div className="flex flex-col gap-2 mt-4 pt-3 border-t border-hairline">
+          <div className="flex flex-col gap-2 mt-4 pt-3 border-t border-hairline dark:border-[#242f42]">
+            {proj.githubUrl && (
+              <a
+                href={proj.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="btn-hairline w-full py-2 px-3 rounded-[24px] text-xs font-medium text-ink dark:text-white bg-mist dark:bg-[#161e2c] hover:bg-paper dark:hover:bg-[#1f2a3c] transition-all flex items-center justify-center gap-1.5 border border-hairline dark:border-[#242f42]"
+              >
+                <GithubIcon className="w-3.5 h-3.5 text-slate dark:text-slate-300" />
+                <span>Repository GitHub</span>
+              </a>
+            )}
+
             {proj.journalUrl && (
               <a
                 href={proj.journalUrl}
@@ -268,7 +296,7 @@ function ProjectCardItem({
                 onClick={(e) => e.stopPropagation()}
                 className="btn-hairline w-full py-2 px-3 rounded-[24px] text-xs font-medium text-ink dark:text-white bg-mist dark:bg-[#161e2c] hover:bg-paper dark:hover:bg-[#1f2a3c] transition-all flex items-center justify-center gap-1.5 border border-hairline dark:border-[#242f42]"
               >
-                <BookOpen className="w-3.5 h-3.5 text-slate" />
+                <BookOpen className="w-3.5 h-3.5 text-slate dark:text-slate-300" />
                 <span>Baca Jurnal Terkait</span>
               </a>
             )}
