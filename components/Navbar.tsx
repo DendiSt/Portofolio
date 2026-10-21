@@ -31,6 +31,12 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
 
   const handleNavClick = () => setMenuOpen(false);
 
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setMenuOpen(false);
+  };
+
   return (
     <>
       <nav className="fixed top-0 w-full z-50 glass-panel border border-hairline dark:border-[#242f42] rounded-[16px] px-6 py-3.5 flex justify-between items-center max-w-[1200px] mx-auto left-0 right-0 mt-3 backdrop-blur-md bg-paper/90 dark:bg-[#0f1422]/90 shadow-contra-md">
@@ -44,9 +50,14 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <div className="text-base md:text-lg font-bold tracking-tight text-ink dark:text-white">
+          <a
+            href="#"
+            onClick={scrollToTop}
+            className="text-base md:text-lg font-bold tracking-tight text-ink dark:text-white hover:opacity-80 transition-opacity cursor-pointer select-none"
+            aria-label="Kembali ke atas"
+          >
             DENDI SUTIYA
-          </div>
+          </a>
         </div>
 
         {/* ── DESKTOP: nav links + toggle ── */}
