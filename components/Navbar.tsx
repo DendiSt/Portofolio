@@ -44,9 +44,8 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <div className="text-base md:text-lg font-bold tracking-tight text-ink dark:text-white flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rotate-45 bg-charcoal dark:bg-white inline-block rounded-xs" />
-            <span>DENDI SUTIYA</span>
+          <div className="text-base md:text-lg font-bold tracking-tight text-ink dark:text-white">
+            DENDI SUTIYA
           </div>
         </div>
 
