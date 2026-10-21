@@ -12,7 +12,7 @@ import CursorGlow from '@/components/CursorGlow';
 import ParticleBackground from '@/components/ParticleBackground';
 
 export default function Home() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(false);
 
   useEffect(() => {
     if (isDark) {
@@ -23,14 +23,14 @@ export default function Home() {
   }, [isDark]);
 
   return (
-    <div className="min-h-screen cyber-grid relative overflow-x-hidden">
-      {/* Background and Cursor */}
-      <CursorGlow />
+    <div className="min-h-screen cyber-grid relative overflow-x-hidden text-ink bg-paper dark:bg-[#0a0e17] dark:text-[#f8fafc] transition-colors duration-300">
+      {/* Background and Cursor - Cursor trail disabled, Particle background retained */}
+      {/* <CursorGlow /> */}
       <ParticleBackground isDark={isDark} speed={0.2} />
 
       <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
       
-      <main className="container mx-auto px-6 max-w-5xl relative z-10 pb-20">
+      <main className="container mx-auto px-6 max-w-[1200px] relative z-10 pb-20">
         <Hero />
         <About />
         <Skills />
@@ -39,8 +39,8 @@ export default function Home() {
         <Contact />
       </main>
 
-      <footer className="text-center py-8 glass-panel border-b-0 border-l-0 border-r-0 z-10 relative">
-        <p className="text-sm font-bold tracking-widest text-slate-500 dark:text-slate-400">
+      <footer className="text-center py-10 border-t border-hairline dark:border-[#242f42] z-10 relative bg-paper/60 dark:bg-[#0a0e17]/80 backdrop-blur-sm">
+        <p className="text-xs tracking-wider uppercase text-slate dark:text-slate-400 font-medium">
           © {new Date().getFullYear()} Dendi Sutiya. All rights reserved.
         </p>
       </footer>

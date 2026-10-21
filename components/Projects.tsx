@@ -129,14 +129,11 @@ function ProjectCardItem({
   return (
     <div
       ref={cardRef}
-      className={`glass-panel rounded-2xl group transition-all duration-500 relative overflow-hidden animate-on-scroll animate-fade-up flex flex-col h-auto w-[86vw] sm:w-[350px] md:w-auto shrink-0 snap-center ${cardDelays[idx]} ${isExpanded
-        ? 'ring-2 ring-cyber-blue dark:ring-cyber-cyan shadow-[0_0_30px_rgba(0,102,255,0.25)] dark:shadow-[0_0_30px_rgba(0,243,255,0.3)] bg-white dark:bg-cyber-dark/95'
-        : 'hover:shadow-neon-cyan hover:-translate-y-1'
-        }`}
+      className={`glass-panel rounded-[4px] group transition-all duration-300 relative overflow-hidden animate-on-scroll animate-fade-up flex flex-col h-auto w-[86vw] sm:w-[350px] md:w-auto shrink-0 snap-center border border-hairline dark:border-[#242f42] dark:bg-[#121824] shadow-contra-md ${cardDelays[idx]} ${isExpanded ? "ring-1 ring-charcoal dark:ring-white/40 bg-paper dark:bg-[#121824]" : "hover:border-slate/40 dark:hover:border-slate-500"}`}
     >
       {/* Container Slider Gambar di Bagian Atas */}
       <div
-        className="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-900 select-none group/slider shrink-0"
+        className="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-900 dark:bg-black select-none group/slider shrink-0 border-b border-hairline dark:border-[#242f42]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -158,16 +155,16 @@ function ProjectCardItem({
         </div>
 
         {/* Category Badge */}
-        <div className="absolute top-3 left-3 px-3 py-1 bg-cyber-dark/80 backdrop-blur-md text-cyber-cyan text-xs font-bold rounded-full border border-cyber-cyan/40 flex items-center gap-1.5 shadow-md z-10 pointer-events-none">
-          {proj.icon}
-          <span>{proj.category}</span>
+        <div className="absolute top-3 left-3 px-3 py-1 bg-black/70 backdrop-blur-md text-white text-xs font-medium rounded-[32px] border border-white/20 flex items-center gap-1.5 shadow-md z-10 pointer-events-none">
+          <span className="text-white flex items-center">{proj.icon}</span>
+          <span className="text-white">{proj.category}</span>
         </div>
 
         {/* Jika projek memiliki lebih dari 1 gambar, tampilkan tombol navigasi & indikator */}
         {hasMultipleImages && (
           <>
-            {/* Counter Badge (Misal: 1/2) */}
-            <div className="absolute top-3 right-3 px-2 py-0.5 bg-slate-950/70 backdrop-blur-md text-cyber-cyan text-[10px] font-mono font-bold rounded-md border border-cyber-cyan/30 z-10">
+            {/* Counter Badge */}
+            <div className="absolute top-3 right-3 px-2.5 py-0.5 bg-black/70 backdrop-blur-md text-white text-[11px] font-mono font-medium rounded-[4px] border border-white/20 z-10">
               {currentImageIndex + 1} / {images.length}
             </div>
 
@@ -175,18 +172,18 @@ function ProjectCardItem({
             <button
               onClick={prevImage}
               aria-label="Gambar Sebelumnya"
-              className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/60 hover:bg-cyber-blue dark:hover:bg-cyber-cyan text-white dark:hover:text-slate-950 opacity-0 group-hover/slider:opacity-100 transition-all duration-300 backdrop-blur-md z-20 cursor-pointer border border-white/20 shadow-lg"
+              className="absolute left-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/70 text-white opacity-0 group-hover/slider:opacity-100 transition-all duration-200 backdrop-blur-md z-20 cursor-pointer border border-white/20 shadow-contra-md hover:bg-black/90"
             >
-              <ChevronLeft className="w-4 h-4" />
+              <ChevronLeft className="w-4 h-4 text-white" />
             </button>
 
             {/* Tombol Geser Kanan */}
             <button
               onClick={nextImage}
               aria-label="Gambar Selanjutnya"
-              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-slate-950/60 hover:bg-cyber-blue dark:hover:bg-cyber-cyan text-white dark:hover:text-slate-950 opacity-0 group-hover/slider:opacity-100 transition-all duration-300 backdrop-blur-md z-20 cursor-pointer border border-white/20 shadow-lg"
+              className="absolute right-2 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-black/70 text-white opacity-0 group-hover/slider:opacity-100 transition-all duration-200 backdrop-blur-md z-20 cursor-pointer border border-white/20 shadow-contra-md hover:bg-black/90"
             >
-              <ChevronRight className="w-4 h-4" />
+              <ChevronRight className="w-4 h-4 text-white" />
             </button>
 
             {/* Indikator Dots di Bawah Gambar */}
@@ -210,23 +207,23 @@ function ProjectCardItem({
       {/* Konten Card (Judul & Deskripsi) */}
       <div className="p-6 flex-1 flex flex-col justify-between">
         <div>
-          <h4 className="text-xl font-bold mb-2 text-slate-800 dark:text-slate-100 group-hover:text-cyber-blue dark:group-hover:text-cyber-cyan transition-colors">
+          <h4 className="text-xl font-bold mb-2 text-ink dark:text-white tracking-tight group-hover:text-charcoal dark:group-hover:text-slate-200 transition-colors">
             {proj.title}
           </h4>
 
           {/* Deskripsi Singkat */}
-          <p className="text-sm text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
+          <p className="text-sm text-slate dark:text-slate-300 mb-4 leading-relaxed">
             {proj.shortDesc}
           </p>
         </div>
 
         <div className="flex flex-col flex-1 justify-end">
           {/* Tech Tags */}
-          <div className="flex flex-wrap gap-2 mb-4">
+          <div className="flex flex-wrap gap-1.5 mb-4">
             {proj.tech.map((t, i) => (
               <span
                 key={i}
-                className="text-xs font-semibold px-2.5 py-1 bg-slate-100 dark:bg-cyber-dark/90 text-cyber-blue dark:text-cyber-cyan rounded-md border border-cyber-blue/30 dark:border-cyber-cyan/30"
+                className="text-xs font-medium px-2.5 py-0.5 bg-mist dark:bg-[#161e2c] text-slate dark:text-slate-300 rounded-[32px] border border-hairline dark:border-[#242f42]"
               >
                 {t}
               </span>
@@ -236,11 +233,11 @@ function ProjectCardItem({
           {/* Bagian Deskripsi Lengkap yang Memanjang ke Bawah saat See More */}
           <div
             className={`transition-all duration-500 ease-in-out overflow-hidden ${isExpanded
-              ? 'max-h-[1000px] opacity-100 mt-2 pt-4 pb-2 border-t border-slate-200 dark:border-slate-700/60'
+              ? 'max-h-[1000px] opacity-100 mt-2 pt-4 pb-2 border-t border-hairline dark:border-[#242f42]'
               : 'max-h-0 opacity-0 mt-0 pt-0 border-t-0'
               }`}
           >
-            <h5 className="text-xs font-bold uppercase tracking-wider text-cyber-blue dark:text-cyber-cyan mb-2">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-slate dark:text-slate-400 mb-2">
               Deskripsi Lengkap
             </h5>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
@@ -248,13 +245,13 @@ function ProjectCardItem({
             </p>
 
             {/* Fitur Utama */}
-            <h5 className="text-xs font-bold uppercase tracking-wider text-cyber-blue dark:text-cyber-cyan mb-2">
+            <h5 className="text-xs font-bold uppercase tracking-wider text-slate dark:text-slate-400 mb-2">
               Fitur Utama
             </h5>
             <ul className="space-y-2 mb-2">
               {proj.features.map((feat, fIdx) => (
-                <li key={fIdx} className="text-xs text-slate-600 dark:text-slate-300 flex items-start gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-cyber-blue dark:text-cyber-cyan shrink-0 mt-0.5" />
+                <li key={fIdx} className="text-xs text-slate dark:text-slate-300 flex items-start gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-ink dark:text-white shrink-0 mt-0.5" />
                   <span className="leading-normal">{feat}</span>
                 </li>
               ))}
@@ -262,29 +259,30 @@ function ProjectCardItem({
           </div>
 
           {/* Tombol Actions */}
-          <div className="flex flex-col gap-2 mt-4">
+          <div className="flex flex-col gap-2 mt-4 pt-3 border-t border-hairline">
             {proj.journalUrl && (
               <a
                 href={proj.journalUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full py-2.5 px-4 rounded-xl border border-cyber-blue/40 dark:border-cyber-cyan/40 bg-cyber-blue/5 dark:bg-cyber-cyan/10 hover:bg-cyber-blue dark:hover:bg-cyber-cyan hover:text-white dark:hover:text-slate-950 text-cyber-blue dark:text-cyber-cyan text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/link shrink-0"
+                onClick={(e) => e.stopPropagation()}
+                className="btn-hairline w-full py-2 px-3 rounded-[24px] text-xs font-medium text-ink dark:text-white bg-mist dark:bg-[#161e2c] hover:bg-paper dark:hover:bg-[#1f2a3c] transition-all flex items-center justify-center gap-1.5 border border-hairline dark:border-[#242f42]"
               >
-                <BookOpen className="w-4 h-4 transition-transform duration-300 group-hover/link:scale-110" />
-                <span>Baca Jurnal</span>
+                <BookOpen className="w-3.5 h-3.5 text-slate" />
+                <span>Baca Jurnal Terkait</span>
               </a>
             )}
 
             {/* Tombol See More / See Less */}
             <button
               onClick={() => onToggleExpand(proj.id)}
-              className="w-full py-2.5 px-4 rounded-xl border border-cyber-blue/40 dark:border-cyber-cyan/40 bg-cyber-blue/5 dark:bg-cyber-cyan/10 hover:bg-cyber-blue dark:hover:bg-cyber-cyan hover:text-white dark:hover:text-slate-950 text-cyber-blue dark:text-cyber-cyan text-xs font-bold transition-all duration-300 flex items-center justify-center gap-2 group/btn cursor-pointer shrink-0"
+              className="w-full py-2 px-3 text-xs font-medium rounded-[24px] text-ink dark:text-slate-200 hover:bg-mist dark:hover:bg-[#161e2c] transition-colors flex items-center justify-center gap-1 border border-hairline dark:border-[#242f42]"
             >
-              <span>{isExpanded ? 'See Less' : 'See More'}</span>
+              <span>{isExpanded ? 'Tutup Detail' : 'Lihat Detail Lengkap'}</span>
               {isExpanded ? (
-                <ChevronUp className="w-4 h-4 transition-transform duration-300 group-hover/btn:-translate-y-0.5" />
+                <ChevronUp className="w-3.5 h-3.5" />
               ) : (
-                <ChevronDown className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-y-0.5" />
+                <ChevronDown className="w-3.5 h-3.5" />
               )}
             </button>
           </div>
@@ -329,19 +327,20 @@ export default function Projects() {
   return (
     <section id="projects" className="py-20 scroll-mt-20 z-10 relative">
       <div className="flex items-center justify-between mb-8">
-        <h3
-          ref={headingRef}
-          className="text-3xl font-black border-l-4 border-cyber-blue pl-4 animate-on-scroll animate-slide-left flex items-center gap-3"
-        >
-          <span>Projects</span>
-          <Sparkles className="w-6 h-6 text-cyber-blue dark:text-cyber-cyan animate-pulse" />
-        </h3>
+        <div ref={headingRef} className="animate-on-scroll animate-slide-left">
+          <h3 className="text-[23px] font-semibold text-ink dark:text-white tracking-tight flex items-center gap-2">
+            <span>Projects Showcase</span>
+          </h3>
+          <p className="text-sm text-slate dark:text-slate-400 mt-1">
+            Kompilasi proyek IoT, Computer Vision, aplikasi mobile, dan sistem web
+          </p>
+        </div>
 
         {/* Petunjuk Geser untuk Mobile */}
-        <div className="md:hidden flex items-center gap-1.5 text-xs font-semibold text-cyber-blue dark:text-cyber-cyan bg-cyber-blue/10 dark:bg-cyber-cyan/10 px-3 py-1.5 rounded-full border border-cyber-blue/30 dark:border-cyber-cyan/30">
-          <ChevronLeft className="w-3.5 h-3.5 animate-pulse" />
-          <span>Geser Projek</span>
-          <ChevronRight className="w-3.5 h-3.5 animate-pulse" />
+        <div className="md:hidden flex items-center gap-1.5 text-xs font-medium text-slate dark:text-slate-300 bg-mist dark:bg-[#161e2c] px-3 py-1.5 rounded-[32px] border border-hairline dark:border-[#242f42]">
+          <ChevronLeft className="w-3.5 h-3.5" />
+          <span>Geser</span>
+          <ChevronRight className="w-3.5 h-3.5" />
         </div>
       </div>
 

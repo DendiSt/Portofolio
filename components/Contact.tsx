@@ -46,12 +46,14 @@ export default function Contact() {
 
   return (
     <section id="contact" className="py-20 scroll-mt-20 z-10 relative">
-      <h3
-        ref={headingRef}
-        className="text-3xl font-black mb-8 border-l-4 border-cyber-cyan pl-4 text-slate-900 dark:text-slate-100 animate-on-scroll animate-slide-left"
-      >
-        Contact &amp; Collaboration
-      </h3>
+      <div ref={headingRef} className="mb-8 animate-on-scroll animate-slide-left">
+        <h3 className="text-[23px] font-semibold text-ink dark:text-white tracking-tight">
+          Kontak &amp; Kolaborasi
+        </h3>
+        <p className="text-sm text-slate dark:text-slate-400 mt-1">
+          Mari berdiskusi mengenai proyek IoT, Backend, atau peluang kerja sama
+        </p>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-12">
         {/* Left: contact links — slide in from left */}
@@ -59,7 +61,7 @@ export default function Contact() {
           ref={leftRef}
           className="space-y-6 animate-on-scroll animate-slide-left delay-200"
         >
-          <p className="text-slate-600 dark:text-slate-300 mb-8">
+          <p className="text-slate dark:text-slate-300 mb-8">
             Tertarik untuk bekerja sama, berdiskusi tentang IoT, atau membangun sistem Web &amp; Mobile yang keren? Jangan ragu untuk menghubungi saya melalui platform di bawah ini.
           </p>
           <div className="space-y-4">
@@ -69,14 +71,14 @@ export default function Contact() {
                 href={contact.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-4 p-4 rounded-xl glass-panel group transition-all duration-300 border border-transparent ${contact.color}`}
+                className="flex items-center gap-4 p-4 rounded-[4px] glass-panel border border-hairline dark:border-[#242f42] dark:bg-[#121824] shadow-contra-md group hover:bg-mist dark:hover:bg-[#161e2c] transition-all"
               >
-                <div className="p-3 rounded-full bg-slate-200 dark:bg-cyber-dark text-cyber-black dark:text-white group-hover:scale-110 transition-transform">
+                <div className="p-3 rounded-full bg-mist dark:bg-[#1a2332] text-ink dark:text-white group-hover:scale-105 transition-transform border border-hairline dark:border-[#242f42]">
                   {contact.icon}
                 </div>
                 <div>
-                  <h5 className="font-bold text-sm text-slate-500 dark:text-slate-400">{contact.label}</h5>
-                  <p className="font-semibold text-cyber-black dark:text-white">{contact.value}</p>
+                  <h5 className="font-medium text-xs text-slate dark:text-slate-400">{contact.label}</h5>
+                  <p className="font-semibold text-ink dark:text-white text-sm">{contact.value}</p>
                 </div>
               </a>
             ))}
@@ -86,21 +88,21 @@ export default function Contact() {
         {/* Right: form — slide in from right */}
         <div
           ref={rightRef}
-          className="glass-panel p-8 rounded-2xl relative overflow-hidden animate-on-scroll animate-slide-right delay-300"
+          className="glass-panel p-7 rounded-[4px] border border-hairline dark:border-[#242f42] dark:bg-[#121824] shadow-contra-md relative overflow-hidden animate-on-scroll animate-slide-right delay-300"
         >
-          <div className="absolute top-0 left-0 w-full h-1 bg-cyber-blue dark:bg-cyber-cyan"></div>
+          
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label className="block text-sm font-bold mb-2 text-cyber-black dark:text-slate-300">Nama</label>
+              <label className="block text-xs font-medium mb-1.5 text-slate dark:text-slate-300">Nama</label>
               <input
                 type="text" name="name" required value={formData.name} onChange={handleChange}
-                className="w-full bg-transparent border-2 border-slate-300 dark:border-slate-700 rounded-lg p-3 outline-none focus:border-cyber-cyan focus:shadow-neon-cyan transition-all text-cyber-black dark:text-white"
+                className="w-full bg-mist dark:bg-[#0f1422] border border-hairline dark:border-[#242f42] rounded-[10px] py-2.5 px-3.5 text-sm outline-none focus:border-ink dark:focus:border-white transition-colors text-ink dark:text-white placeholder:text-fog dark:placeholder:text-slate-500"
                 placeholder="Nama Lengkap"
               />
             </div>
             <div>
-              <label className="block text-sm font-bold mb-2 text-cyber-black dark:text-slate-300">Email</label>
+              <label className="block text-xs font-medium mb-1.5 text-slate dark:text-slate-300">Email</label>
               <input
                 type="email" name="email" required value={formData.email} onChange={handleChange}
                 className="w-full bg-transparent border-2 border-slate-300 dark:border-slate-700 rounded-lg p-3 outline-none focus:border-cyber-purple focus:shadow-neon-purple transition-all text-cyber-black dark:text-white"
@@ -108,7 +110,7 @@ export default function Contact() {
               />
             </div>
             <div>
-              <label className="block text-sm font-bold mb-2 text-cyber-black dark:text-slate-300">Pesan</label>
+              <label className="block text-xs font-medium mb-1.5 text-slate dark:text-slate-300">Pesan</label>
               <textarea
                 name="message" required rows={4} value={formData.message} onChange={handleChange}
                 className="w-full bg-transparent border-2 border-slate-300 dark:border-slate-700 rounded-lg p-3 outline-none focus:border-cyber-blue focus:shadow-neon-cyan transition-all text-cyber-black dark:text-white resize-none"

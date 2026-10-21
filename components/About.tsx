@@ -7,19 +7,21 @@ export default function About() {
   const cardRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 });
 
   return (
-    <section id="about" className="py-20 scroll-mt-20 z-10 relative">
-      <h3
-        ref={headingRef}
-        className="text-3xl font-black mb-8 border-l-4 border-cyber-purple pl-4 text-slate-900 dark:text-slate-100 animate-on-scroll animate-slide-left"
-      >
-        Tentang Saya
-      </h3>
+    <section id="about" className="py-16 scroll-mt-20 z-10 relative">
+      <div ref={headingRef} className="mb-6 animate-on-scroll animate-slide-left">
+        <h3 className="text-[23px] font-semibold text-ink dark:text-white tracking-tight">
+          Tentang Saya
+        </h3>
+        <p className="text-sm text-slate dark:text-slate-400 mt-1">
+          Latar belakang pendidikan, minat, dan fokus teknologi
+        </p>
+      </div>
+
       <div
         ref={cardRef}
-        className="glass-panel p-8 rounded-2xl relative overflow-hidden group animate-on-scroll animate-fade-up delay-200"
+        className="glass-panel p-7 rounded-[4px] border border-hairline dark:border-[#242f42] dark:bg-[#121824] relative overflow-hidden animate-on-scroll animate-fade-up delay-100"
       >
-        <div className="absolute top-0 left-0 w-full h-1 bg-cyber-blue dark:bg-cyber-cyan"></div>
-        <p className="text-lg leading-relaxed z-10 relative text-slate-700 dark:text-slate-300">
+        <p className="text-base text-ink dark:text-slate-200 leading-relaxed font-normal">
           Saya adalah seorang mahasiswa D4 Teknologi Rekayasa Perangkat Lunak yang memiliki semangat tinggi dalam mengeksplorasi dunia IT. Saat ini, saya memfokuskan diri pada Backend Development untuk membangun arsitektur sistem yang solid, efisien, dan andal. Memiliki pengalaman dalam mengembangkan berbagai proyek Website, Aplikasi Mobile, hingga sistem AIoT. Bagi saya, teknologi bukan sekadar baris kode, melainkan medium untuk terus belajar dan menciptakan solusi di balik layar yang inovatif guna menjawab tantangan masa depan.
         </p>
       </div>

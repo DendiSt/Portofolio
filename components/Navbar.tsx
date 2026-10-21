@@ -33,30 +33,31 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
 
   return (
     <>
-      <nav className="fixed top-0 w-full z-50 glass-panel border-b-0 rounded-b-2xl px-6 py-4 flex justify-between items-center max-w-7xl mx-auto left-0 right-0 mt-2">
+      <nav className="fixed top-0 w-full z-50 glass-panel border border-hairline dark:border-[#242f42] rounded-[16px] px-6 py-3.5 flex justify-between items-center max-w-[1200px] mx-auto left-0 right-0 mt-3 backdrop-blur-md bg-paper/90 dark:bg-[#0f1422]/90 shadow-contra-md">
 
         {/* ── BRAND (MOBILE & DESKTOP) ── */}
         <div className="flex items-center gap-3">
           <button
-            className="md:hidden p-2 rounded-xl border border-cyber-blue/40 dark:border-cyber-cyan/40 text-cyber-blue dark:text-cyber-cyan hover:bg-cyber-blue/10 dark:hover:bg-cyber-cyan/10 transition-all"
+            className="md:hidden p-2 rounded-[10px] border border-hairline dark:border-[#242f42] text-ink dark:text-white hover:bg-mist dark:hover:bg-[#1a2332] transition-all"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
             {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <div className="text-lg md:text-xl font-extrabold tracking-widest text-slate-900 dark:text-slate-100">
-            DENDI SUTIYA
+          <div className="text-base md:text-lg font-bold tracking-tight text-ink dark:text-white flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rotate-45 bg-charcoal dark:bg-white inline-block rounded-xs" />
+            <span>DENDI SUTIYA</span>
           </div>
         </div>
 
         {/* ── DESKTOP: nav links + toggle ── */}
         <div className="flex items-center gap-6">
-          <ul className="hidden md:flex gap-6 text-sm font-semibold">
+          <ul className="hidden md:flex gap-6 text-sm font-medium">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="hover:text-cyber-blue dark:hover:text-cyber-cyan transition-colors"
+                  className="text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white transition-colors"
                 >
                   {link.label}
                 </a>
@@ -64,14 +65,15 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
             ))}
           </ul>
 
-          {/* Theme toggle (selalu tampil) */}
+          {/* Theme toggle */}
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors"
+            className="p-2 rounded-full hover:bg-mist dark:hover:bg-[#1a2332] text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white transition-colors border border-transparent hover:border-hairline dark:hover:border-[#242f42]"
+            aria-label="Toggle theme"
           >
             {isDark
-              ? <Sun className="text-cyber-cyan w-5 h-5" />
-              : <Moon className="text-cyber-blue w-5 h-5" />}
+              ? <Sun className="w-4 h-4 text-white" />
+              : <Moon className="w-4 h-4 text-charcoal" />}
           </button>
         </div>
       </nav>
@@ -80,11 +82,11 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
       <div
         className={`
           fixed inset-x-0 top-0 z-40 md:hidden
-          glass-panel border-b border-cyber-cyan/30
+          glass-panel border-b border-hairline dark:border-[#242f42] dark:bg-[#0f1422]
           transition-all duration-300 ease-in-out
           ${menuOpen ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0 pointer-events-none'}
         `}
-        style={{ paddingTop: '5rem' }}
+        style={{ paddingTop: '5.5rem' }}
       >
         <ul className="flex flex-col px-6 pb-6 gap-1">
           {navLinks.map((link, idx) => (
@@ -92,10 +94,10 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
               <a
                 href={link.href}
                 onClick={handleNavClick}
-                className="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 dark:text-slate-200 hover:text-cyber-blue dark:hover:text-cyber-cyan hover:bg-cyber-blue/10 dark:hover:bg-cyber-cyan/10 transition-all group"
-                style={{ transitionDelay: menuOpen ? `${idx * 50}ms` : '0ms' }}
+                className="flex items-center gap-3 py-2.5 px-4 rounded-[10px] text-sm font-medium text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-mist dark:hover:bg-[#1a2332] transition-all group"
+                style={{ transitionDelay: menuOpen ? `${idx * 40}ms` : '0ms' }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-cyber-blue dark:bg-cyber-cyan opacity-0 group-hover:opacity-100 transition-opacity" />
+                <span className="w-1.5 h-1.5 rounded-full bg-charcoal dark:bg-white opacity-0 group-hover:opacity-100 transition-opacity" />
                 {link.label}
               </a>
             </li>
@@ -106,7 +108,7 @@ export default function Navbar({ isDark, toggleTheme }: { isDark: boolean; toggl
       {/* Backdrop / overlay */}
       {menuOpen && (
         <div
-          className="fixed inset-0 z-30 md:hidden bg-cyber-black/50 backdrop-blur-sm"
+          className="fixed inset-0 z-30 md:hidden bg-ink/30 dark:bg-black/60 backdrop-blur-xs"
           onClick={() => setMenuOpen(false)}
         />
       )}

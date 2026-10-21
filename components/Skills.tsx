@@ -31,51 +31,53 @@ export default function Skills() {
   const iconsRef = useScrollAnimation<HTMLDivElement>({ threshold: 0.05 });
 
   return (
-    <section id="skills" className="py-20 scroll-mt-20 z-10 relative">
+    <section id="skills" className="py-16 scroll-mt-20 z-10 relative">
 
       {/* 3 Info Cards */}
       <div
         ref={cardsRef}
-        className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20"
+        className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-16"
       >
         {[
-          { icon: <Code className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Bahasa & Framework', desc: 'Laravel, Javascript, Bootstrap, Flutter, Arduino Ide' },
-          { icon: <GraduationCap className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Pendidikan', desc: 'Politeknik Negeri Subang di program studi D4 Teknologi Rekayasa Perangkat Lunak' },
-          { icon: <Briefcase className="w-8 h-8 text-slate-800 dark:text-white mb-6" />, title: 'Projek', desc: 'Telah membuat beberapa projek mobile dan website' },
+          { icon: <Code className="w-6 h-6 text-ink dark:text-white mb-4" />, title: 'Bahasa & Framework', desc: 'Javascript, Python, HTML, CSS, Laravel, Flutter, Bootstrap' },
+          { icon: <GraduationCap className="w-6 h-6 text-ink dark:text-white mb-4" />, title: 'Pendidikan', desc: 'Politeknik Negeri Subang di program studi D4 Teknologi Rekayasa Perangkat Lunak' },
+          { icon: <Briefcase className="w-6 h-6 text-ink dark:text-white mb-4" />, title: 'Projek', desc: 'Telah membuat beberapa projek mobile dan website' },
         ].map((card, idx) => (
           <div
             key={idx}
-            className={`glass-panel p-8 rounded-2xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-black/20 hover:border-cyber-cyan/50 transition-colors animate-on-scroll animate-fade-up ${cardDelays[idx]}`}
+            className={`glass-panel p-6 rounded-[4px] border border-hairline dark:border-[#242f42] dark:bg-[#121824] hover:border-slate/40 dark:hover:border-slate-400 transition-colors animate-on-scroll animate-fade-up ${cardDelays[idx]}`}
           >
             {card.icon}
-            <h4 className="text-xl font-bold text-slate-800 dark:text-white mb-4">{card.title}</h4>
-            <p className="text-slate-600 dark:text-gray-400 leading-relaxed">{card.desc}</p>
+            <h4 className="text-base font-semibold text-ink dark:text-white mb-2">{card.title}</h4>
+            <p className="text-sm text-slate dark:text-slate-300 leading-relaxed">{card.desc}</p>
           </div>
         ))}
       </div>
 
-      <h3
-        ref={techHeadRef}
-        className="text-3xl font-black mb-8 border-l-4 border-cyber-cyan pl-4 text-slate-900 dark:text-slate-100 animate-on-scroll animate-slide-left"
-      >
-        Teknologi yang saya gunakan
-      </h3>
+      <div ref={techHeadRef} className="mb-6 animate-on-scroll animate-slide-left">
+        <h3 className="text-[23px] font-semibold text-ink dark:text-white tracking-tight">
+          Teknologi yang Saya Gunakan
+        </h3>
+        <p className="text-sm text-slate dark:text-slate-400 mt-1">
+          Stack dan perangkat lunak yang mendukung alur kerja pengembangan
+        </p>
+      </div>
 
-      {/* Skill icons grid — each icon zooms in with a stagger */}
+      {/* Skill icons grid */}
       <div
         ref={iconsRef}
-        className="grid grid-cols-4 gap-3 sm:flex sm:flex-wrap sm:gap-4"
+        className="grid grid-cols-4 gap-3 sm:flex sm:flex-wrap sm:gap-3"
       >
         {skills.map((skill, idx) => (
           <div
             key={idx}
-            style={{ transitionDelay: `${idx * 45}ms` }}
-            className="animate-on-scroll animate-zoom-in relative group w-full aspect-square sm:w-20 sm:h-20 bg-white dark:bg-[#0a0a0a] border border-slate-200 dark:border-gray-800 rounded-2xl flex items-center justify-center hover:border-cyber-cyan dark:hover:border-cyber-cyan hover:shadow-[0_0_15px_rgba(0,255,255,0.3)] transition-all duration-300 cursor-pointer"
+            style={{ transitionDelay: `${idx * 40}ms` }}
+            className="animate-on-scroll animate-zoom-in relative group w-full aspect-square sm:w-20 sm:h-20 bg-paper dark:bg-[#161e2c] border border-hairline dark:border-[#263246] rounded-[10px] flex items-center justify-center hover:border-charcoal dark:hover:border-slate-300 shadow-xs hover:shadow-contra-md transition-all duration-200 cursor-pointer"
           >
-            <img src={skill.iconUrl} alt={skill.name} className="w-8 h-8 sm:w-10 sm:h-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300" />
+            <img src={skill.iconUrl} alt={skill.name} className="w-8 h-8 sm:w-9 sm:h-9 group-hover:scale-105 transition-transform duration-200" />
 
             {/* Tooltip */}
-            <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs py-1.5 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10 shadow-lg border border-slate-700">
+            <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-charcoal dark:bg-slate-100 text-white dark:text-slate-900 text-xs py-1 px-2.5 rounded-[4px] opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-20 shadow-contra-md">
               {skill.name}
             </div>
           </div>

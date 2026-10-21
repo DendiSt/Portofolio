@@ -13,10 +13,13 @@ interface Splatter {
   borderRadius: string;
 }
 
+// Contra accent color palette for interactive splatter dots
 const colors = [
-  'bg-cyber-purple',
-  'bg-cyber-cyan',
-  'bg-cyber-blue',
+  'bg-iris',
+  'bg-orchid',
+  'bg-coral',
+  'bg-lilac',
+  'bg-charcoal',
 ];
 
 export default function CursorGlow() {

@@ -2,41 +2,263 @@
 @tailwind components;
 @tailwind utilities;
 
+/* =============================================
+   CONTRA DESIGN SYSTEM TOKENS (DESIGN.md)
+   ============================================= */
+:root {
+  /* Colors */
+  --color-ink: #14171f;
+  --color-paper: #ffffff;
+  --color-mist: #f5f6f9;
+  --color-hairline: #e5e7eb;
+  --color-slate: #677084;
+  --color-fog: #9ba2b0;
+  --color-graphite: #373f51;
+  --color-charcoal: #222834;
+  --color-deep-ink: #050505;
+  --color-pearl: #d0d4dc;
+  --color-iris: #6a57e3;
+  --color-lilac: #ddd8ff;
+  --color-orchid: #cd74dd;
+  --color-wine: #45192f;
+  --color-coral: #ff5a5e;
+  --color-lime: #f0fb96;
+  --color-hero-wash: #9ddef9;
+  --gradient-hero-wash: linear-gradient(90deg, rgb(205, 243, 253), rgb(157, 222, 249) 42.88%, rgb(151, 157, 241) 94.62%);
+
+  /* Typography — Font Families */
+  --font-gt-standard-m: var(--font-geist-sans), 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-gt-standard-l: var(--font-geist-sans), 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  /* Typography — Scale */
+  --text-caption: 12px;
+  --leading-caption: 1.4;
+  --tracking-caption: 0px;
+  --text-body-sm: 14px;
+  --leading-body-sm: 1.43;
+  --tracking-body-sm: -0.14px;
+  --text-body-lg: 16px;
+  --leading-body-lg: 1.6;
+  --tracking-body-lg: -0.16px;
+  --text-subheading: 19px;
+  --leading-subheading: 1.33;
+  --tracking-subheading: -0.19px;
+  --text-heading-sm: 23px;
+  --leading-heading-sm: 1.39;
+  --tracking-heading-sm: -0.23px;
+  --text-display: 58px;
+  --leading-display: 1.05;
+  --tracking-display: -0.58px;
+
+  /* Typography — Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+
+  /* Spacing Scale (4px base) */
+  --spacing-unit: 4px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-28: 28px;
+  --spacing-32: 32px;
+  --spacing-36: 36px;
+  --spacing-40: 40px;
+  --spacing-48: 48px;
+  --spacing-60: 60px;
+  --spacing-68: 68px;
+  --spacing-72: 72px;
+
+  /* Layout */
+  --page-max-width: 1200px;
+  --section-gap: 64px;
+  --card-padding: 12px;
+  --element-gap: 8px;
+
+  /* Border Radius */
+  --radius-md: 4px;
+  --radius-lg: 10px;
+  --radius-2xl: 16px;
+  --radius-3xl: 24px;
+  --radius-3xl-2: 32px;
+  --radius-3xl-3: 40px;
+  --radius-full: 63px;
+  --radius-full-2: 100px;
+
+  /* Named Radii */
+  --radius-nav: 16px;
+  --radius-tags: 32px;
+  --radius-cards: 4px;
+  --radius-inputs: 10px;
+  --radius-buttons: 24px;
+  --radius-largepills: 40px;
+
+  /* Elevation & Shadows */
+  --shadow-md: rgba(34, 40, 52, 0.05) 0px 4px 10px 0px, rgba(34, 40, 52, 0.04) -2px 18px 18px 0px;
+  --shadow-subtle: rgb(19, 24, 25) 0px 1px 3px 0px inset;
+  --shadow-lg: rgba(0, 0, 0, 0.05) 0px 10px 20px 0px;
+
+  /* Surfaces */
+  --surface-canvas: #ffffff;
+  --surface-mist-band: #f5f6f9;
+  --surface-charcoal-card: #222834;
+  --surface-ink-card: #14171f;
+}
+
+.dark {
+  /* Crisp, High-Contrast Obsidian Editorial Dark Theme */
+  --color-ink: #f8fafc;
+  --color-paper: #121824;
+  --color-mist: #1a2332;
+  --color-hairline: #263246;
+  --color-slate: #94a3b8;
+  --color-fog: #64748b;
+  --color-graphite: #cbd5e1;
+  --color-charcoal: #ffffff;
+  --color-deep-ink: #ffffff;
+  --color-pearl: #334155;
+  --surface-canvas: #0a0e17;
+  --surface-mist-band: #141b27;
+  --surface-charcoal-card: #121824;
+  --surface-ink-card: #0a0e17;
+  --shadow-md: 0 4px 20px -2px rgba(0, 0, 0, 0.5), 0 2px 6px -1px rgba(0, 0, 0, 0.4);
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-slate-50 text-slate-800 transition-colors duration-500 font-sans;
+  background-color: var(--surface-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-gt-standard-m);
+  letter-spacing: -0.01em;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-.dark body {
-  @apply bg-cyber-black text-slate-200;
-}
-
-/* Professional Grid Background (Subtle) */
+/* Subtle Editorial Marble Grid */
 .cyber-grid {
-  background-color: #f8fafc;
-  background-size: 40px 40px;
+  background-color: var(--surface-canvas);
   background-image: 
-    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(20, 23, 31, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 23, 31, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
 }
 
 .dark .cyber-grid {
-  background-color: #0f172a;
+  background-color: var(--surface-canvas);
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
 }
 
-/* Modern Panel */
+/* Contra Card / Panel (4px radius, hairline border, two-layer charcoal shadow) */
 .glass-panel {
-  @apply bg-white border border-slate-200 shadow-sm transition-all;
+  background-color: var(--color-paper);
+  border: 1px solid var(--color-hairline);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-cards);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .dark .glass-panel {
-  @apply bg-slate-800 border border-slate-700 shadow-sm;
+  background-color: #121824;
+  border-color: #242f42;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5);
+}
+
+/* Contra Component Utilities */
+.btn-charcoal {
+  background-color: var(--color-charcoal);
+  color: #ffffff;
+  border-radius: var(--radius-buttons);
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.15s ease, opacity 0.15s ease, background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-charcoal:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+.dark .btn-charcoal {
+  background-color: #f8fafc;
+  color: #0b0f17;
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.12);
+}
+.dark .btn-charcoal:hover {
+  background-color: #ffffff;
+  color: #000000;
+  transform: translateY(-1px);
+}
+
+.btn-hairline {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-buttons);
+  padding: 7px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-hairline:hover {
+  background-color: var(--color-mist);
+  border-color: var(--color-pearl);
+}
+.dark .btn-hairline {
+  background-color: #161e2c;
+  color: #f1f5f9;
+  border-color: #263246;
+}
+.dark .btn-hairline:hover {
+  background-color: #1e283a;
+  border-color: #3b4b66;
+  color: #ffffff;
+}
+
+/* Segmented Tab Switcher (Mist pill container, Paper active segment) */
+.segmented-tab-wrapper {
+  background-color: var(--color-mist);
+  border-radius: var(--radius-nav);
+  padding: 4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.segmented-tab-item {
+  border-radius: 12px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--color-slate);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.segmented-tab-item.active {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  box-shadow: var(--shadow-subtle);
+  font-weight: 600;
+}
+
+/* Hero Gradient Wash */
+.hero-gradient-wash {
+  background: var(--gradient-hero-wash);
 }
 
 /* Hide scrollbar for smooth carousel scrolling */
@@ -52,11 +274,10 @@ body {
    SCROLL-TRIGGERED ENTRANCE ANIMATIONS
    ============================================= */
 
-/* --- Keyframes --- */
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
   }
   to {
     opacity: 1;
@@ -67,7 +288,7 @@ body {
 @keyframes fadeDown {
   from {
     opacity: 0;
-    transform: translateY(-30px);
+    transform: translateY(-20px);
   }
   to {
     opacity: 1;
@@ -78,7 +299,7 @@ body {
 @keyframes slideInLeft {
   from {
     opacity: 0;
-    transform: translateX(-50px);
+    transform: translateX(-40px);
   }
   to {
     opacity: 1;
@@ -89,7 +310,7 @@ body {
 @keyframes slideInRight {
   from {
     opacity: 0;
-    transform: translateX(50px);
+    transform: translateX(40px);
   }
   to {
     opacity: 1;
@@ -100,7 +321,7 @@ body {
 @keyframes zoomIn {
   from {
     opacity: 0;
-    transform: scale(0.88);
+    transform: scale(0.92);
   }
   to {
     opacity: 1;
@@ -113,7 +334,7 @@ body {
   to   { opacity: 1; }
 }
 
-/* --- Base hidden states (before visible) --- */
+/* Base hidden states */
 .animate-on-scroll {
   opacity: 0;
   transition-property: opacity, transform;
@@ -122,31 +343,22 @@ body {
   will-change: opacity, transform;
 }
 
-/* Fade Up (default) */
-.animate-fade-up    { transform: translateY(40px); }
-/* Slide Left */
-.animate-slide-left { transform: translateX(-50px); }
-/* Slide Right */
-.animate-slide-right{ transform: translateX(50px); }
-/* Zoom In */
-.animate-zoom-in    { transform: scale(0.88); }
-/* Fade only */
+.animate-fade-up    { transform: translateY(30px); }
+.animate-slide-left { transform: translateX(-40px); }
+.animate-slide-right{ transform: translateX(40px); }
+.animate-zoom-in    { transform: scale(0.92); }
 .animate-fade       { transform: none; }
 
-/* --- Visible state: element itself --- */
 .animate-on-scroll.is-visible {
   opacity: 1;
   transform: none;
 }
 
-/* --- Visible state: children inside a parent that got is-visible --- */
-/* (Handles cases where ref is on a grid wrapper, but animate classes are on child cards) */
 .is-visible .animate-on-scroll {
   opacity: 1;
   transform: none;
 }
 
-/* --- Stagger delay helpers --- */
 .delay-100 { transition-delay: 100ms; }
 .delay-200 { transition-delay: 200ms; }
 .delay-300 { transition-delay: 300ms; }

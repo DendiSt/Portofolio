@@ -32,8 +32,9 @@ export default function ParticleBackground({
     // @ts-ignore - Particle class is defined below
     let particles: Particle[] = [];
 
-    const defaultParticleColor = isDark ? "rgba(0, 243, 255, 0.4)" : "rgba(0, 102, 255, 0.4)";
-    const defaultLineColor = isDark ? "rgba(0, 243, 255, 0.15)" : "rgba(0, 102, 255, 0.15)";
+    // Contra-aligned particle colors: subtle charcoal in light mode, glowing silver constellation in dark mode
+    const defaultParticleColor = isDark ? "rgba(241, 245, 249, 0.5)" : "rgba(34, 40, 52, 0.22)";
+    const defaultLineColor = isDark ? "rgba(148, 163, 184, 0.18)" : "rgba(103, 112, 132, 0.12)";
     
     const pColor = particleColor || defaultParticleColor;
     const lColor = connectionColor || defaultLineColor;

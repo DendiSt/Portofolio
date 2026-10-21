@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Terminal } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 export default function Hero() {
@@ -38,7 +37,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="min-h-[100svh] flex flex-col-reverse md:flex-row items-center justify-center gap-12 pt-36 pb-12">
+    <section id="hero" className="min-h-[100svh] flex flex-col-reverse md:flex-row items-center justify-center gap-12 pt-36 pb-16">
       {/* Text side — slides in from left */}
       <div
         ref={textRef}
@@ -46,28 +45,35 @@ export default function Hero() {
       >
         <div
           ref={badgeRef}
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyber-blue dark:border-cyber-cyan text-cyber-blue dark:text-cyber-cyan text-sm font-bold bg-cyber-blue/10 dark:bg-cyber-cyan/10"
+          className="inline-flex items-center px-3.5 py-1.5 rounded-[32px] bg-mist dark:bg-[#161e2c] border border-hairline dark:border-[#263246] text-ink dark:text-slate-200 text-xs font-medium"
         >
-          <Terminal size={16} /> Web &amp; IoT Enthusiast
+          Web &amp; IoT Enthusiast
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-black tracking-tight min-h-[120px] md:min-h-[160px]">
+        <h1 className="text-5xl md:text-[58px] font-extrabold tracking-[-0.02em] leading-[1.08] text-ink dark:text-white min-h-[120px] md:min-h-[140px]">
           {greeting} <br />
-          <span className="text-cyber-blue dark:text-cyber-cyan font-bold drop-shadow-sm">
+          <span className="text-ink dark:text-white">
             {name}
           </span>
 
           {!isTypingDone && (
-            <span className="inline-block w-1 h-10 md:h-16 ml-2 bg-cyber-cyan animate-pulse align-middle transition-opacity duration-300"></span>
+            <span className="inline-block w-0.5 h-8 md:h-12 ml-1 bg-ink dark:bg-white animate-pulse align-middle"></span>
           )}
         </h1>
 
-        <h2 className="text-2xl font-bold text-slate-600 dark:text-slate-400">Junior Web &amp; IoT Developer</h2>
-        <div className="pt-4 flex flex-col gap-4 justify-center items-center md:items-start">
-          <a href="#projects" className="px-8 py-3 w-full sm:w-[200px] text-center rounded-md font-bold bg-cyber-blue dark:bg-cyber-cyan text-white dark:text-cyber-black shadow-neon-cyan hover:scale-105 transition-transform">
+        <h2 className="text-lg md:text-xl font-normal text-slate dark:text-slate-300">Junior Web &amp; IoT Developer</h2>
+        <div className="pt-3 flex flex-col sm:flex-row gap-3 justify-center md:justify-start items-center">
+          <a
+            href="#projects"
+            className="btn-charcoal px-6 py-2.5 rounded-[24px] text-sm font-medium shadow-contra-md transition-all text-center w-full sm:w-auto"
+          >
             Lihat Projek
           </a>
-          <a href="/images/CVDendiSutiya.pdf" download="CV_Dendi_Sutiya.pdf" className="px-8 py-3 w-full sm:w-[200px] text-center rounded-md font-bold border border-cyber-blue dark:border-cyber-cyan text-cyber-blue dark:text-cyber-cyan hover:bg-cyber-blue/10 dark:hover:bg-cyber-cyan/10 transition-colors">
+          <a
+            href="/images/CVDendiSutiya.pdf"
+            download="CV_Dendi_Sutiya.pdf"
+            className="btn-hairline px-6 py-2.5 rounded-[24px] text-sm font-medium transition-all text-center w-full sm:w-auto"
+          >
             Download CV
           </a>
         </div>
@@ -78,8 +84,8 @@ export default function Hero() {
         ref={imageRef}
         className="flex-1 flex justify-center z-10 animate-on-scroll animate-slide-right delay-200"
       >
-        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border-2 border-cyber-blue dark:border-cyber-cyan shadow-neon-cyan animate-[pulse_3s_ease-in-out_infinite]">
-          <img src="/images/profile.jpg" alt="Profile" className="w-full h-full object-cover rounded-full transition-all duration-500" />
+        <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-full p-2 border border-hairline dark:border-[#263246] bg-paper dark:bg-[#121824] shadow-contra-md">
+          <img src="/images/profile.jpg" alt="Profile" className="w-full h-full object-cover rounded-full" />
         </div>
       </div>
     </section>
